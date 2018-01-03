@@ -12,12 +12,11 @@ if not Path(config_filepath).is_file():
 config = configparser.ConfigParser()
 config.read(config_filepath)
 
-username = "consumer:USERCREDENTIALS.local," + config['lumada']['user']
+
 asset_id = config['lumada']['asset_id']
-topics = [("assets/" + asset_id + "/event/#", 0)]
+topics = [("assets/" + asset_id + "/state/#", 0)]
 # 	("assets/" + asset_id + "/+/#", 0),
 # 	("assets/+/event/#", 0),
 
-locationConsumer = LocationConsumer(host=config['lumada']['host'], username=username,
-	password=config['lumada']['passwd'], asset_id=asset_id, topics=topics)
+locationConsumer = LocationConsumer(config=config, topics=topics)
 locationConsumer.connect()
