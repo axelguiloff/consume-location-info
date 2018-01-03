@@ -11,5 +11,5 @@ This project is a test for subscribing to event messages from [Lumada](https://w
 `config/config.example.ini -> config/config.ini`
 
 ```
-python3 mqq-test.py <username> <password>
+python3 lumada-test.py
 ```
